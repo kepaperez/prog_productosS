@@ -28,6 +28,7 @@ public class ModeloProducto extends Conector {
 				producto.setPrecio(rs.getDouble("precio"));
 				producto.setDescuento(rs.getInt("descuento"));
 				producto.setTallas(rs.getString("tallas"));
+				//bukatua
 				
 				productos.add(producto);
 			}
