@@ -43,6 +43,7 @@
           <tbody>
             <%for(int i = 0; i< productos.size(); i++){ 
 	  		Producto producto = productos.get(i);
+	  		//
 	  %>
             <tr>
             <th><a href="VerProducto?id=<%=producto.getId()%>"><%=producto.getNombre()%></a></th>
