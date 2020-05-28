@@ -1,5 +1,9 @@
 package modelo.bean;
-
+/**
+ * 
+ * @author kepa perez
+ *
+ */
 public class Descuento {
 	private int id;
 	private int valor;

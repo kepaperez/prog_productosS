@@ -1,7 +1,7 @@
 package Controlador;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,22 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.bean.Producto;
 import modelo.dao.ModeloProducto;
+
 /**
- * 
+ * Servlet implementation class EliminarProducto
  */
-/**
- * Servlet implementation class VerProductos
- */
-@WebServlet("/VerProductos")
-public class VerProductos extends HttpServlet {
+@WebServlet("/EliminarProducto")
+public class EliminarProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VerProductos() {
+    public EliminarProducto() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +31,18 @@ public class VerProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ModeloProducto mProducto = new ModeloProducto();
-		ArrayList<Producto> productos = mProducto.getAll();
+int id = Integer.parseInt(request.getParameter("id"));
 		
-		request.setAttribute("productos", productos);
 		
-		request.getRequestDispatcher("verProductos.jsp").forward(request, response);
+		try {
+			ModeloProducto mProducto = new ModeloProducto();
+			mProducto.delete(id);
+			mProducto.getConexion().close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("VerProductos");
 	}
 
 	/**
