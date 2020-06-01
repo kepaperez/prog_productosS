@@ -45,6 +45,7 @@ public class ApiProductos extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(jsonString);
 		out.flush();
+		//
 	}
 
 	/**
