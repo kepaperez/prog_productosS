@@ -62,7 +62,7 @@ public class CrearProducto extends HttpServlet {
 
 		Date fecha = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		
+		//
 		try {
 			fecha = sdf.parse(jsonObject.getString("fecha_compra"));
 		} catch (JSONException e) {
